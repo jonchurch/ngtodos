@@ -5,8 +5,11 @@
     MainController.$inject = ['$scope', 'TodoService'];
 
     function MainController($scope, TodoService) {
+        $scope.todos = TodoService.todos;
+        $scope.create = createTodo;
         getTodos();
 
+        //returns array of all todos
         function getTodos(){
             TodoService.readAll()
                         .then(function(){
@@ -14,5 +17,14 @@
                             console.log($scope.todos);
                         });
         }
-    }
+
+        function createTodo(description){
+         TodoService.create(description)
+                    .then(function(){
+                        $scope.todos = TodoService.todos;
+                        getTodos();
+                    });
+         }   
+        }
+    
 })();

@@ -10,15 +10,15 @@
 <body>
     <div class='container' ng-controller='MainController'>
     <div class="row">
-        <div class="col-xs-8 col-xs-offset-1">
+        <div class="col-md-10 col-md-offset-1">
             <div class="form-group">
             <label>Description:</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" ng-model="description">
             </div>
         </div>
-        <div class="col-xs-8 col-xs-offset-1">
-            <button class="btn btn-warning btn-block">Create</button>
-        </driv>
+        <div class="col-md-10 col-md-offset-1">
+            <button class="btn btn-warning btn-block" ng-click="create(description)">Create</button>
+        </div>
     </div>
     <pre>
     <!-- Formats todos in json -->
