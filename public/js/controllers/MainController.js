@@ -21,7 +21,6 @@
         function createTodo(description){
          TodoService.create(description)
                     .then(function(){
-                        $scope.todos = TodoService.todos;
                         $scope.description = '';
                         getTodos();
                     });

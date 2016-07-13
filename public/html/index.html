@@ -7,24 +7,30 @@
     <meta charset="UTF-8">
     <title>ngtodo</title>
 </head>
+
 <body>
     <div class='container' ng-controller='MainController'>
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="form-group">
-            <label>Description:</label>
-            <input type="text" class="form-control" ng-model="description">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="form-group">
+                    <label>Description:</label>
+                    <input type="text" class="form-control" ng-model="description">
+                </div>
+            </div>
+            <div class="col-md-10 col-md-offset-1">
+
+                <button class="btn btn-warning btn-block" ng-click="create(description)">Create</button>
+
             </div>
         </div>
-        <div class="col-md-10 col-md-offset-1">
-            <button class="btn btn-warning btn-block" ng-click="create(description)">Create</button>
-        </div>
-    </div>
-    <pre>
-    <!-- Formats todos in json -->
-        {{ todos | json }}
-    </pre>
 
+        <div class="row" ng-repeat="eachItem in todos">
+            <div class="jumbotron" data-id="{{eachItem.id}}">
+            <h1>{{eachItem.description}}</h1>
+             <p><strong>is complete: {{eachItem.isComplete}}</strong></p>
+            </div>
+
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
     <script src="js/app.js"></script>
