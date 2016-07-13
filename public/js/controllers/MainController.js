@@ -10,7 +10,8 @@
 		TodoService.readAll()
 					.then(function(){
 						todos = TodoService.todos;
-						console.log(todos);});
+						console.log(todos);
+					});
 		
 	}
 })();
