@@ -29,7 +29,7 @@
     			});
     	}
     	function updateTodo(id, newTodo){
-            return $http.put(baseURL + 'todos', newTodo)
+            return $http.put(baseURL + 'todos/' +id, newTodo)
                             .then(function(response) {
                                 getAll();
                             });

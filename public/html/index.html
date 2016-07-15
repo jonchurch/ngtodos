@@ -27,8 +27,28 @@
         <div class="row" ng-repeat="eachItem in todos">
             <div class="jumbotron" data-id="{{eachItem.id}}">
             <button class="btn btn-danger btn-small pull-right" ng-click="delete(eachItem.id)">X</button>
-            <h1>{{eachItem.description}}</h1>
+            <h1 ng-hide="eachItem.editting" class="">{{eachItem.description}}</h1>
+            <input type="text" class="form-control" ng-show="eachItem.editting" ng-model='eachItem.description'>
+
              <p><strong>is complete: {{eachItem.isComplete}}</strong></p>
+             <div ng-show="eachItem.editting">
+                 <input type="radio" ng-value="true" ng-model="eachItem.isComplete">True <br>
+                 <input type="radio" ng-value="false" ng-model="eachItem.isComplete">False <br>  
+             </div>
+             
+              
+             <button class="btn btn-small btn-warning pull-right" ng-click="edit(eachItem)" ng-hide="eachItem.editting">
+             Edit
+             </button>
+
+            <button class="btn btn-small btn-danger pull-right" ng-click="cancel(eachItem)" ng-show="eachItem.editting">
+             Cancel
+             </button>
+             <button class="btn btn-small btn-success pull-right" ng-show="eachItem.editting" ng-click="update(eachItem)">
+             Save
+             </button>
+
+             
             </div>
 
         </div>
